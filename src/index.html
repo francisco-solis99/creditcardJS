@@ -13,10 +13,10 @@
     <main class="credit-card">
       <div class="credit-card__wrapper">
         <form action="" class="credit-card__form">
-          <h2>Francisco Javier Solis Martinez</h2>
-          <input type="number" name="cardNumber">
-          <input type="number" name="cardDate">
-          <input type="number" name="cardCVC">
+          <h2 class="credit-card__name">Francisco Javier Solis Martinez</h2>
+          <input type="number" name="cardNumber" class="credit-card__input" placeholder="Card number" aria-label="Credit Card Number" required >
+          <input type="number" name="cardCVC" class="credit-card__input" placeholder="Card CVC" aria-label="Credit Card CVC" required>
+          <input type="number" name="cardDate" class="credit-card__input" placeholder="Card Date" aria-label="Credit Card Expiration Date" required minlength="3" maxlength="5">
         </form>
       </div>
     </main>
