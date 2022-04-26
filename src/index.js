@@ -1,20 +1,18 @@
 
 const creditCardInputs = document.querySelectorAll('.credit-card__input');
 
-const inputParams = {
-  cardNumber: { separator: '-', digits: 4, length: 16 },
-  cardCVC: { separator: '', digits: 0, length: 3 },
-  cardDate: { separator: '/', digits: 2, length: 4 },
-};
-
 creditCardInputs.forEach(input => input.addEventListener('keydown', (e) => {
-  if (e.keyCode === 8 || e.keyCode === 46) return;
-  maskText(e.target, inputParams[e.target.name] ?? inputParams.cardCVC);
+  e.preventDefault();
+  maskText(e.key, input);
 }));
 
-function maskText(input, { separator, digits, length }) {
-  const numNumbers = input.value.match(/\d/g)?.length ?? 1;
-  if (!(numNumbers % digits)) {
-    input.value = (numNumbers + 1 < length) ? input.value + separator : input.value;
+function maskText(key, input) {
+  const { mask, separator = '-' } = input.dataset;
+  if (key === 'Backspace') {
+    input.value = input.value.slice(0, input.value.length - 1);
+    return;
+  }
+  if (/\d/.test(key) && input.value.length < mask.length) {
+    mask[input.value.length + 1] === separator ? input.value += `${key}${separator}` : input.value += `${key}`;
   }
 }

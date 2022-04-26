@@ -14,9 +14,9 @@
       <div class="credit-card__wrapper">
         <form action="" class="credit-card__form">
           <h2 class="credit-card__name">Francisco Javier Solis Martinez</h2>
-          <input type="text" name="cardNumber" class="credit-card__input" placeholder="Card number" aria-label="Credit Card Number" required maxlength="19">
-          <input type="text" name="cardCVC" class="credit-card__input" placeholder="Card CVC" aria-label="Credit Card CVC" required maxlength="3">
-          <input type="text" name="cardDate" class="credit-card__input" placeholder="Card Date" aria-label="Credit Card Expiration Date" required maxlength="5">
+          <input type="text" name="cardNumber" class="credit-card__input" placeholder="Card number" aria-label="Credit Card Number" required data-mask="####-####-####-####" data-separator="-">
+          <input type="text" name="cardCVC" class="credit-card__input" placeholder="Card CVC" aria-label="Credit Card CVC" required maxlength="3" data-mask="###">
+          <input type="text" name="cardDate" class="credit-card__input" placeholder="Card Date" aria-label="Credit Card Expiration Date" required maxlength="5" data-mask="##/##" data-separator="/">
         </form>
       </div>
     </main>
